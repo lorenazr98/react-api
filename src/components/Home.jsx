@@ -69,7 +69,7 @@ function Home() {
                 <div className="containerCat" key={index}>
                     <img src={gato.url} alt="gato" />
                     <img 
-                    src={favoritos.includes(gato.url) ? "/img/fav.png" : "/img/makeFav.png"} 
+                    src={favoritos.includes(gato.url) ? "img/fav.png" : "img/makeFav.png"} 
                     onClick={() => agregarFavoritos(gato.url)} 
                     />
                 </div>

@@ -23,7 +23,7 @@ function Favoritos() {
                     <div className="containerCat" key={index}>
                         <img src={url} alt="gato" />
                         <img 
-                            src="/img/fav.png"
+                            src="img/fav.png"
                             onClick={() => eliminarFavoritos(url)} />
                     </div>
                 ))}
