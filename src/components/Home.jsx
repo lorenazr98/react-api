@@ -55,28 +55,33 @@ function Home() {
     return (
         <div>
             <div className="containerTitle">
-                <h1 className="appTitle">Cat Gallery</h1>
-                <Link to="/favoritos">Favoritos</Link>
+            <h1 className="appTitle">Cat Gallery</h1>
+            <Link to="/favoritos">Favoritos</Link>
             </div>
-            {cargando && <p>Cargando...</p>}
+
             {error && <p>{error}</p>}
 
-            {!cargando && !error && (
-                <div className="container">
-                    {gatos.map((gato, index) => (
-                        <div className="containerCat" key={index}>
-                            <img src={gato.url} alt="gato" />
-                            <img 
-                                src={favoritos.includes(gato.url) ? "src/assets/img/fav.png" : "src/assets/img/makeFav.png"} 
-                                onClick={() => agregarFavoritos(gato.url)} />
-                        </div>
-                    ))}
+            {cargando && gatos.length === 0 && <p>Cargando...</p>}
+
+            {gatos.length > 0 && (
+            <div className="container">
+                {gatos.map((gato, index) => (
+                <div className="containerCat" key={index}>
+                    <img src={gato.url} alt="gato" />
+                    <img 
+                    src={favoritos.includes(gato.url) ? "/img/fav.png" : "/img/makeFav.png"} 
+                    onClick={() => agregarFavoritos(gato.url)} 
+                    />
                 </div>
+                ))}
+            </div>
             )}
-            {!cargando && !error && (
-                <button onClick={cargarMas}>Ver más</button>
+
+            {cargando && gatos.length > 0 && <p>Cargando...</p>}
+
+            {!error && gatos.length > 0 && (
+            <button onClick={cargarMas}>Ver más</button>
             )}
-            
         </div>
     )
 }
