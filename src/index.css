@@ -24,7 +24,7 @@ a:hover {
     color: red;
 }
 
-.container, #containerFavs {
+.container, .containerFavs {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
